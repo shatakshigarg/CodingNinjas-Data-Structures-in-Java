@@ -1,0 +1,21 @@
+public class Solution {
+
+    public static int count(int n){
+          int  countn=1;
+          if(n <= 0){
+              return 0;
+         } 
+         else{
+              int smallAns = count(n / 10);
+              countn =countn +smallAns;
+          }
+          return countn;
+        // int countn = 0;
+        // while (n != 0) { 
+        //     n = n / 10; 
+        //     countn++; 
+        // } 
+        // return countn;
+    }
+
+}

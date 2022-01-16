@@ -1,0 +1,76 @@
+
+//public class Solution {
+
+	//public static int firstIndex(int input[], int x) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+       
+      /*  int si=0;
+        if(si==input.length-1){
+            return -1;
+        }
+        
+        if(x==input[si]){
+            return si;
+        }
+        
+        int isnumfound = firstIndex(input,x);
+        return isnumfound;*/
+        
+        //if(input.length==0){
+       ///     return -1;
+       // }
+       // if(input[0]==x){
+       //     return 0;
+       // }
+        //int smallarray[]=new int[input.length-1];
+        //for(int i=1;i<input.length;i++){
+       //     smallarray[i-1]=input[i];
+        //}
+        
+      //  int fi =firstIndex(smallarray,x);
+       // if(fi==-1){
+        //    return -1;
+       //// } else{
+           // return fi+1;
+       // }
+		
+	//}
+	
+//}
+
+public class Solution {
+
+	public static int firstIndex(int input[], int x) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+        return firstIndex( input, x,0);
+		
+	}
+    public static int firstIndex(int input[], int x,int startindex) 
+    {
+        if(startindex==input.length)
+        {
+            return -1;
+        }
+        if(input[startindex]==x)
+        {
+            return startindex;
+        }
+        int ans= firstIndex(input,  x, startindex+1) ;
+        return ans;
+    
+    
+    }
+    
+    
+	
+}
