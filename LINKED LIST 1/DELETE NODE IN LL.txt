@@ -1,0 +1,40 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> deleteNode(LinkedListNode<Integer> head, int pos) {
+		//Your code goes here
+        if (pos<0)
+        {
+            return head;
+        }
+            
+        else if(pos==0)
+        {
+            if(head==null){
+                return head;
+            }
+            head=head.next;
+            return head;
+        }
+        else
+        {
+            LinkedListNode<Integer> n=head,delNode=null;
+            for (int i=0;i<pos-1 && n!=null;i++)
+            {
+                n=n.next;
+            }
+            if (n!=null && n.next!=null)
+            {
+                if (n.next!=null)
+                {
+                    n.next=n.next.next;
+                }
+                else
+                {
+                    n.next=null;
+                }
+                
+            }
+        }
+        return head;
+	}
+}
