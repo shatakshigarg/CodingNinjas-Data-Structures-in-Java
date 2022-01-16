@@ -1,0 +1,31 @@
+import java.util.*;
+public class Solution {
+
+	public static void intersection(int[] arr1, int[] arr2) {
+	    //Your code goes here
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        merge(arr1,arr2);
+        
+	}
+    
+    private static void merge(int []arr1,int []arr2){
+        int m=arr1.length;
+        int n=arr2.length;
+        int i=0;
+        int j=0;
+        while(i<m && j<n){
+            if(arr1[i]==arr2[n]){
+                System.out.print(arr1[i]+" ");
+                i++;
+                j++;
+            }
+            else if(arr1[i]<arr2[j]){
+                i++;
+            }else{
+                j++;
+            }
+            
+        }
+    }
+	
