@@ -1,0 +1,57 @@
+import java.util.*;
+/*
+	
+	Following is the structure used to represent the Binary Tree Node
+
+	class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+
+*/
+
+public class Solution {
+	
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
+		//Your code goes here
+        if (root==null)
+        {
+            return;
+        }
+        Queue<BinaryTreeNode<Integer>> nodesToPrint=new LinkedList<BinaryTreeNode<Integer>>();
+        nodesToPrint.add(root);
+        while(!nodesToPrint.isEmpty())
+        {
+            BinaryTreeNode<Integer> front = nodesToPrint.poll();
+            System.out.print(front.data+":");
+            if (front.left!=null)
+            {
+                nodesToPrint.add(front.left);
+                System.out.print("L:"+front.left.data);
+            }
+            else
+            {
+                System.out.print("L:-1");
+            }
+            
+            if (front.right!=null)
+            {
+                nodesToPrint.add(front.right);
+                System.out.print(",R:"+front.right.data);
+            }
+            else
+            {
+                System.out.print(",R:-1");
+            }
+            System.out.println();
+        }
+	}
+	
+}
