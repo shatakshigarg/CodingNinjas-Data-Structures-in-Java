@@ -1,0 +1,31 @@
+import java.util.*;
+import java.lang.*;
+public class Solution {
+
+	/*
+	 * Binary Tree Node class
+	 * 
+	 * class BinaryTreeNode<T> { T data; BinaryTreeNode<T> left; BinaryTreeNode<T>
+	 * right;
+	 * 
+	 * public BinaryTreeNode(T data) { this.data = data; } }
+	 */
+
+	public static void replaceWithLargerNodesSum(BinaryTreeNode<Integer> root) {
+		// Write your code here
+        replaceWithLargerNodesSum(root,0);
+	}
+    
+    public static int replaceWithLargerNodesSum(BinaryTreeNode<Integer> root, int sum)
+    {
+        //Base Case
+        if(root == null)
+			return sum;
+        
+		//Recursive Case
+		sum = replaceWithLargerNodesSum(root.right,sum);
+		sum += root.data;
+		root.data = sum;
+		return replaceWithLargerNodesSum(root.left,sum);
+    }
+}
