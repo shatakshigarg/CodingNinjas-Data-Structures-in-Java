@@ -1,0 +1,102 @@
+import java.util.ArrayList;
+
+
+public class solution {
+
+	/*	Binary Tree Node class
+	 * 
+	 * class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+		}
+	}
+	 */
+    
+    /*
+        Time Complexity - O(N)
+        Space Complexity - O(H)
+
+        where N is the number of nodes in the tree
+        and H is the height of the tree
+*/
+
+
+
+	public static boolean areNodesSibling(BinaryTreeNode<Integer> root, int a, int b) 
+    {
+		if (root == null) 
+        {
+			return false;
+		}
+
+		if (root.left != null && root.right != null) 
+        {
+			if (root.left.data == a && root.right.data == b) 
+            {
+				return true;
+			}
+			if (root.left.data == b && root.right.data == a) 
+            {
+				return true;
+			}
+		}
+
+		if (areNodesSibling(root.left, a, b)) 
+        {
+			return true;
+		}
+		if (areNodesSibling(root.right, a, b)) 
+        {
+			return true;
+		}
+
+		return false;
+	}
+
+	public static int findLevel(BinaryTreeNode<Integer> root, int x, int level) 
+    {
+		if (root == null) 
+        {
+			return 0;
+		}
+		if (root.data == x) 
+        {
+			return level;
+		}
+
+		// if x is found in left subtree
+		int lev = findLevel(root.left, x, level + 1);
+		if (lev != 0) 
+        {
+			return lev;
+		}
+
+		return findLevel(root.right, x, level + 1);
+	}
+
+	public static boolean isCousin(BinaryTreeNode<Integer> root, int p, int q)
+    {
+		
+        // a and b are the given two nodes
+		if (p != q && findLevel(root, p, 1) == findLevel(root, q, 1) && !areNodesSibling(root, p, q)) 
+        {
+			return true;
+		} 
+        else 
+        {
+			return false;
+		}
+	}
+
+}
+
+
+// 	public static boolean isCousin(BinaryTreeNode<Integer> root, int p, int q) {
+// 		// Write your code here
+
+// 	}
+
