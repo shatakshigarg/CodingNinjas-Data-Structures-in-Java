@@ -1,0 +1,13 @@
+public class Solution {
+
+	public static int getSum(BinaryTreeNode<Integer> root) {
+		//Your code goes here.
+        if (root==null)
+        {
+            return 0;
+        }
+        int smallSum=getSum(root.left)+getSum(root.right);
+        return root.data+smallSum;
+	}
+
+}

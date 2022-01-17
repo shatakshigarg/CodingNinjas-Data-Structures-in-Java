@@ -1,0 +1,21 @@
+public class Solution {
+
+	public static int countNodesGreaterThanX(BinaryTreeNode<Integer> root, int x) {
+		//Your code goes here
+        if (root==null)
+        {
+            return 0;
+        }
+        
+        int smallOutput=countNodesGreaterThanX(root.left,x)+countNodesGreaterThanX(root.right,x);
+        if (root.data>x)
+        {
+            return smallOutput+1;
+        }
+        else
+        {
+            return smallOutput;
+        }
+	}
+
+}
